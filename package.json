@@ -1,0 +1,23 @@
+{
+    "scripts": {
+        "webpack": "webpack",
+        "webpack-dev-server": "webpack-dev-server",
+        "start": "webpack"
+    },
+    "dependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+        "css-loader": "^0.28.11",
+        "postcss-custom-properties": "^7.0.0",
+        "postcss-loader": "^2.1.5",
+        "vue": "^2.5.16",
+        "vue-loader": "^15.2.4",
+        "vue-property-decorator": "^6.1.0",
+        "vue-router": "^3.0.1",
+        "vue-template-compiler": "^2.5.16",
+        "webpack": "^4.11.1",
+        "webpack-cli": "^3.0.3",
+        "webpack-dev-server": "^3.1.4"
+    }
+}
