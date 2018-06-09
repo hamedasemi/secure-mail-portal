@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @keyframes identifier {
   from {
     opacity: 0;

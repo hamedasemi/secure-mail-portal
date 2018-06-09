@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AppBar from './app/core/bar.vue'
-import AppFoo from './app/core/foo.vue'
+
+import AppLogin from './app/login/login.vue'
+import AppDashboard from './app/dashboard/dashboard.vue'
+import AppSettings from './app/settings/settings.vue'
+import AppHelp from './app/help/help.vue'
 
 Vue.use(VueRouter)
 
@@ -10,8 +13,10 @@ Vue.config.productionTip = false
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/foo', component: AppFoo },
-        { path: '/bar', component: AppBar }
+        { path: '/login', component: AppLogin },
+        { path: '/dashboard', component: AppDashboard },
+        { path: '/settings', component: AppSettings },
+        { path: '/help', component: AppHelp }
     ]
 })
 

@@ -1,19 +1,22 @@
 <template>
-  <p>{{ greeting }} World! 
-    <app-header></app-header> 
-    <router-link to="/foo">Go to Foo</router-link>
-    <router-link to="/bar">Go to Bar</router-link>
-
+  <article>
+    <app-header>
+      <app-nav></app-nav> 
+    </app-header>
+    <main>
       <router-view></router-view>
-
-  </p>
+    </main>
+    
+  </article>
 </template>
 
 <script>
-import AppHeader from "./core/header.vue";
+import AppHeader from "./core/header/header.vue";
+import AppNav from "./core/nav/nav.vue";
 
 export default {
   components: {
+    AppNav,
     AppHeader
   },
   data: function() {
@@ -25,12 +28,11 @@ export default {
 </script>
 
 <style scoped>
-.router-link-active {
-  color: aqua;
-}
-p {
+
+article {
   font-size: 2em;
   text-align: center;
   color: var(--color);
-}
+} 
+
 </style>
