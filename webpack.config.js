@@ -26,7 +26,21 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'postcss-loader'
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer'),
+                require('postcss-custom-properties')({
+                  appendVariables: true,
+                  variables: {
+                    color: 'green'
+                  }
+                })
+              ]
+            }
+          }
         ]
       }
     ]
@@ -35,3 +49,5 @@ module.exports = {
     new VueLoaderPlugin()
   ]
 }
+
+
