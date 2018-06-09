@@ -6,7 +6,7 @@
     <main>
       <router-view></router-view>
     </main>
-    
+
   </article>
 </template>
 
