@@ -27,20 +27,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                require('autoprefixer'),
-                require('postcss-custom-properties')({
-                  appendVariables: true,
-                  variables: {
-                    color: 'green'
-                  }
-                })
-              ]
-            }
-          }
+          'postcss-loader',
         ]
       }
     ]
