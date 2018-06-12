@@ -14,7 +14,6 @@ export default {
   methods: {
     submitHandler: function(event) {
       event.preventDefault();
-      console.log(12)
       this.$events.$emit("logout");
     }
   }

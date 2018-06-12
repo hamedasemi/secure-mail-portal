@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  props: ["navigations"]
+  computed: {
+    navigations: function() {
+      return this.$state.navigations;
+    }
+  }
 };
 </script>
 

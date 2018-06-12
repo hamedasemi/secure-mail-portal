@@ -6,7 +6,6 @@ import AppDashboard from './app/dashboard/dashboard.vue'
 import AppSettings from './app/settings/settings.vue'
 import AppHelp from './app/help/help.vue'
 import AppNotFound from './app/not-found/not-found.vue'
-import AppLogout from './app/logout/logout.vue'
 
 import authentication from './app/shared/authentication/authentication.js'
 

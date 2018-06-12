@@ -2,7 +2,7 @@
   <article>
     <app-header>
       <app-logo></app-logo>
-      <app-nav v-bind:navigations="navigations"></app-nav>
+      <app-nav></app-nav>
       <app-user></app-user>
     </app-header>
     <main>
@@ -16,7 +16,6 @@ import AppHeader from "./core/header/header.vue";
 import AppNav from "./core/nav/nav.vue";
 import AppLogo from "./core/logo/logo.vue";
 import AppUser from "./core/user/user.vue";
-import AppAny from "./core/any/any.vue";
 
 import AppLogin from "./login/login.vue";
 import AppNotFound from "./not-found/not-found.vue";
@@ -35,6 +34,23 @@ export default {
     this.$events.$on("logout", this.onLogout);
     this.$state.navigations = { name: "Hamed" };
     document.body.setAttribute("isUserLoggedIn", authentication.status());
+    this.$state.navigations = [
+      {
+        id: 0,
+        name: "Dashboard",
+        link: "/dashboard"
+      },
+      {
+        id: 1,
+        name: "Settings",
+        link: "/settings"
+      },
+      {
+        id: 2,
+        name: "Help",
+        link: "/help"
+      }
+    ];
   },
   methods: {
     myEventHandler: function() {
@@ -63,34 +79,12 @@ export default {
   },
   components: {
     AppNav,
-    AppAny,
     AppLogo,
     AppLogin,
     AppUser,
     AppHeader,
     AppLogout,
     AppNotFound
-  },
-  data: function() {
-    return {
-      navigations: [
-        {
-          id: 0,
-          name: "Dashboard",
-          link: "/dashboard"
-        },
-        {
-          id: 1,
-          name: "Settings",
-          link: "/settings"
-        },
-        {
-          id: 2,
-          name: "Help",
-          link: "/help"
-        }
-      ]
-    };
   }
 };
 </script>
