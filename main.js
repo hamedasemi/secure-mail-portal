@@ -11,26 +11,8 @@ debug.enabled = DEBUG;
 document.body.setAttribute('browser', browser)
 document.body.setAttribute('version', version)
 
-
-const EventBus = new Vue();
-
-Object.defineProperties(Vue.prototype, {
-    $events: {
-        get: function () {
-            return EventBus;
-        }
-    }
-});
-
-const DataBus = new Vue();
-
-Object.defineProperties(Vue.prototype, {
-    $state: {
-        get: function () {
-            return DataBus;
-        }
-    }
-});
+Vue.prototype.$events = new Vue()
+Vue.prototype.$state = new Vue()
 
 new Vue({
     el: '#root',
