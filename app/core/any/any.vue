@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 export default {
   methods: {
     clickHandler: function() {

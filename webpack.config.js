@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -33,7 +34,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      'DEBUG': JSON.stringify(process.env.DEBUG || 'development')
+    }),
   ]
 }
 

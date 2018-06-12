@@ -1,8 +1,6 @@
 <template>
   <form v-on:submit="submitHandler">
-    <input type="text">
-    <input type="password">
-    <button>Login</button>
+    <button>Logout</button>
     <app-spinner v-bind:status="status"></app-spinner>
   </form>
 </template>
@@ -21,10 +19,9 @@ export default {
   methods: {
     submitHandler: function(event) {
       event.preventDefault();
-      this.$emit('my-event')
       this.status = "loading";
-      authentication.login().subscribe(() => {
-        document.body.setAttribute("isUserLoggedIn", true)
+      authentication.logout().subscribe(() => {
+        document.body.setAttribute("isUserLoggedIn", false)
         this.$router.replace("dashboard");
         this.status = "loaded";
       });
