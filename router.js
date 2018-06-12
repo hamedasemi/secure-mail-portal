@@ -17,7 +17,6 @@ Vue.config.productionTip = false
 let routes = [
     { path: '/', redirect: '/dashboard' },
     { path: '/login', component: AppLogin },
-    { path: '/logout', component: AppLogout },
     { path: '/dashboard', component: AppDashboard, beforeEnter: guard },
     { path: '/settings', component: AppSettings, beforeEnter: guard },
     { path: '/help', component: AppHelp, beforeEnter: guard },

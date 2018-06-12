@@ -28,7 +28,21 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('autoprefixer'),
+                require('postcss-custom-properties')({
+                  preserve: false,
+                  variables: {
+                    'color': 'green',
+                    'accent-color': 'purple'
+                  }
+                })
+              ]
+            }
+          },
         ]
       }
     ]
@@ -36,7 +50,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
-      'DEBUG': JSON.stringify(process.env.DEBUG || 'development')
+      'DEBUG': process.env.DEBUG
     }),
   ]
 }

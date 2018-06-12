@@ -2,7 +2,7 @@ import Debug from '../../../node_modules/debug/src/browser.js'
 
 const debug = new Debug('[app] [storage]')
 
-debug.enabled = true
+debug.enabled = DEBUG
 
 export function create(key, value) {
     debug('create', key, value)

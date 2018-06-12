@@ -6,7 +6,7 @@ import Debug from '../../../node_modules/debug/src/browser.js'
 
 const debug = new Debug('[app] [authentication]')
 
-debug.enabled = true
+debug.enabled = DEBUG
 
 export function status(path) {
     // Get token from localstorage

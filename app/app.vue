@@ -3,7 +3,6 @@
     <app-header>
       <app-logo></app-logo>
       <app-nav v-bind:navigations="navigations"></app-nav>
-      <app-login v-on:my-event="myEventHandler"></app-login>
       <app-user></app-user>
     </app-header>
     <main>
@@ -22,17 +21,20 @@ import AppAny from "./core/any/any.vue";
 import AppLogin from "./login/login.vue";
 import AppNotFound from "./not-found/not-found.vue";
 import AppLogout from "./logout/logout.vue";
+import authentication from "./shared/authentication/authentication.js";
 
 import Debug from "../node_modules/debug/src/browser.js";
 
 const debug = new Debug("[app]");
 
-debug.enabled = true;
+debug.enabled = DEBUG;
 
 export default {
   created: function() {
     this.$events.$on("router-push", this.onRouterPush);
-    this.$state.navigations = {name: "Hamed"}
+    this.$events.$on("logout", this.onLogout);
+    this.$state.navigations = { name: "Hamed" };
+    document.body.setAttribute("isUserLoggedIn", authentication.status());
   },
   methods: {
     myEventHandler: function() {
@@ -50,6 +52,13 @@ export default {
     onRouterPush: function(path) {
       debug("Router Push", path);
       this.$router.push(path);
+    },
+    onLogout: function() {
+      authentication.logout().subscribe(() => {
+        document.body.setAttribute("isUserLoggedIn", false);
+        this.$router.push("login");
+        debug("Authentication logout");
+      });
     }
   },
   components: {
