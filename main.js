@@ -12,6 +12,16 @@ Object.defineProperties(Vue.prototype, {
     }
 });
 
+const DataBus = new Vue();
+
+Object.defineProperties(Vue.prototype, {
+    $state: {
+        get: function () {
+            return DataBus;
+        }
+    }
+});
+
 new Vue({
     router,
     render: h => h(App)

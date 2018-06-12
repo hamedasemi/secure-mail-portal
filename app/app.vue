@@ -32,6 +32,7 @@ debug.enabled = true;
 export default {
   created: function() {
     this.$events.$on("router-push", this.onRouterPush);
+    this.$state.navigations = {name: "Hamed"}
   },
   methods: {
     myEventHandler: function() {

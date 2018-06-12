@@ -20,6 +20,7 @@ export default {
   methods: {
     clickHandler: function() {
       this.$events.$emit("router-push", "/");
+      console.log(this.$state.navigations)
     }
   }
 };
