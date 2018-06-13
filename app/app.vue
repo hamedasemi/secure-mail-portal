@@ -8,6 +8,12 @@
     <main>
       <router-view v-on:my-event-3="myEventHandler3"></router-view>
     </main>
+    <aside>
+      <app-settings></app-settings>
+    </aside>
+    <footer>
+      <small>hello footer</small>
+    </footer>
   </article>
 </template>
 
@@ -18,6 +24,7 @@ import AppLogo from "./core/logo/logo.vue";
 import AppUser from "./core/user/user.vue";
 
 import AppLogin from "./login/login.vue";
+import AppSettings from "./settings/settings.vue";
 import AppNotFound from "./not-found/not-found.vue";
 import authentication from "./shared/authentication/authentication.js";
 
@@ -35,21 +42,42 @@ export default {
     document.body.setAttribute("isUserLoggedIn", authentication.status());
     this.$state.navigations = [
       {
-        id: 0,
         name: "Dashboard",
         link: "/dashboard"
       },
       {
-        id: 1,
         name: "Settings",
         link: "/settings"
       },
       {
-        id: 2,
         name: "Help",
         link: "/help"
       }
     ];
+    this.$state.invoices = [
+      {
+        id: 0,
+        amount: 220
+      },
+      {
+        id: 1,
+        amount: 1800
+      },
+      {
+        id: 2,
+        amount: 70
+      }
+    ];
+
+    setTimeout(() => {
+      this.$state.navigations = [
+        {
+         name: "sdfghj",
+        link: "/wertyui"
+      },
+      ]
+      
+    }, 2000);
   },
   methods: {
     myEventHandler: function() {
@@ -80,6 +108,7 @@ export default {
     AppNav,
     AppLogo,
     AppLogin,
+    AppSettings,
     AppUser,
     AppHeader,
     AppNotFound
@@ -92,5 +121,28 @@ article {
   font-size: 2em;
   text-align: center;
   color: var(--color);
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "main main main aside"
+    "footer footer footer footer";
+  grid-template-columns: auto auto auto 200px;
+  grid-template-rows: auto;
+}
+header {
+  grid-area: header;
+  background: salmon;
+}
+main {
+  grid-area: main;
+  background: rgb(255, 206, 71);
+}
+aside {
+  grid-area: aside;
+  background: rgb(46, 89, 139);
+}
+footer {
+  grid-area: footer;
+  background: rgb(62, 138, 100);
 }
 </style>
