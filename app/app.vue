@@ -19,7 +19,6 @@ import AppUser from "./core/user/user.vue";
 
 import AppLogin from "./login/login.vue";
 import AppNotFound from "./not-found/not-found.vue";
-import AppLogout from "./logout/logout.vue";
 import authentication from "./shared/authentication/authentication.js";
 
 import Debug from "../node_modules/debug/src/browser.js";
@@ -83,7 +82,6 @@ export default {
     AppLogin,
     AppUser,
     AppHeader,
-    AppLogout,
     AppNotFound
   }
 };

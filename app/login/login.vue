@@ -1,10 +1,12 @@
 <template>
-  <form v-on:submit="submitHandler">
+  <section>
+    <form v-on:submit="submitHandler">
     <input type="text">
     <input type="password">
     <button>Login</button>
     <app-spinner v-bind:status="status"></app-spinner>
   </form>
+  </section>
 </template>
 
 <script>
@@ -21,10 +23,10 @@ export default {
   methods: {
     submitHandler: function(event) {
       event.preventDefault();
-      this.$emit('my-event')
+      this.$emit("my-event");
       this.status = "loading";
       authentication.login().subscribe(() => {
-        document.body.setAttribute("isUserLoggedIn", true)
+        document.body.setAttribute("isUserLoggedIn", true);
         this.$router.replace("dashboard");
         this.status = "loaded";
       });
@@ -34,5 +36,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

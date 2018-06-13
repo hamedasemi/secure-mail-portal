@@ -1,11 +1,20 @@
 <template>
-  <div>
+  <section>
     <h1>Dashboard</h1>
-  </div>
+  </section>
 </template>
 
 <script >
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+@keyframes transition {
+  from{
+    transform: scale(.8)
+  }
+}
+section {
+  animation: transition 1s;
+}
+</style>
